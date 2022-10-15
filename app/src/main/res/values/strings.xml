@@ -2,4 +2,5 @@
     <string name="app_name">IntentServiceApp</string>
     <string name="evaluate_bt">Evaluate</string>
     <string name="enter_numbers_title">Enter numbers</string>
+    <string name="worker_bt_title">Worker</string>
 </resources>

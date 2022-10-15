@@ -43,8 +43,20 @@ class MainActivity : AppCompatActivity() {
             } catch (exception: Exception) {
                 Toast.makeText(applicationContext, "Введите числа", Toast.LENGTH_SHORT).show()
             }
-
         }
+
+        binding.workerBt.setOnClickListener {
+            worker()
+        }
+    }
+
+    private fun worker() {
+        val worker = MainThreadWorker()
+        worker.start()
+        worker.post(2000) { sendEvaluateIntent(1, 2) }
+        worker.post(3000) { sendEvaluateIntent(1, 3) }
+        worker.post { sendEvaluateIntent(1, 1) }
+        worker.post(5000) { worker.stopWorker() }
     }
 
     private fun sendEvaluateIntent(firstInt: Int, secondInt: Int) {
